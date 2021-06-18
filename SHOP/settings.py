@@ -66,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'main.context_processor.get_categories',
             ],
         },
     },
@@ -80,7 +81,7 @@ WSGI_APPLICATION = 'SHOP.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'shop',
+        'NAME': 'cooking_blog_db',
         'USER': 'dastan',
         'PASSWORD': '1',
         'HOST': 'localhost',
@@ -133,3 +134,8 @@ STATICFILES_DIRS = (
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+AUTH_USER_MODEL = 'account.User'
+
+LOGIN_REDIRECT_URL = '/account/myprofile'
+LOGOUT_REDIRECT_URL = '/res'
